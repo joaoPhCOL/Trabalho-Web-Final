@@ -1,7 +1,7 @@
 'use client'
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
-import { index } from '@/api/index'
+import handler from '@/api/index'
 import { yupResolver } from '@hookform/resolvers/yup';
 import { eventoValidationSchema } from '../validation/EventosValidation';
 
@@ -18,7 +18,7 @@ export default function EventForm() {
   //recebe os dados do form 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post(index, data);
+      const response = await axios.post(handler, data);
       console.log('Resposta da API:', response.data);
     } catch (error) {
       console.error('erro ao enviar dados para API', error);
